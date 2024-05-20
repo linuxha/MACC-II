@@ -1,0 +1,109 @@
+*
+****************************************
+FILE MACC-II.bin F800
+OPTION begin F800
+OPTION noflex
+OPTION 6800
+OPTION asc
+OPTION out MACC-II.dis
+****************************************
+
+* This is just a guess but it's the only other ROM
+LABEL   2000 VIDEO
+
+COMMENT F800 ------------------------------------------------------------------------------
+
+INSERT  F800 \   CPU 6800
+INSERT  F800
+INSERT  F800 \   ;\*include "asl.inc"    ;* Included ub rtedit.asm (couldn't clean this up)
+INSERT  F800
+
+COMMENT F800 ------------------------------------------------------------------------------
+LABEL   F800 BEGIN
+LABEL   FD24 JBEGIN
+LABEL   F803 XXX
+LABEL   FD32 JXX
+COMMENT F006 ------------------------------------------------------------------------------
+
+COMMENT F806 ------------------------------------------------------------------------------   
+LABEL   F806 START
+
+*LABEL   IGNORE
+*DATA    0-00F0
+*
+* Can't put anything before the start of the code at 0100
+*
+*
+
+COMMENT FD4E
+COMMENT FD4E ------------------------------------------------------------------------------
+COMMENT FD4E Expect string addr in X,
+COMMENT FD4E terminated with \4
+COMMENT FD4E x
+LABEL   FD4E      OUTS
+
+COMMENT FDD2
+COMMENT FDD2 ------------------------------------------------------------------------------
+COMMENT FDD2 x
+COMMENT FDD2 x
+COMMENT FDD2 x
+LABEL   FDD2 INEEE
+ 
+COMMENT FD77
+COMMENT FD77 ------------------------------------------------------------------------------
+
+COMMENT FE81 ------------------------------------------------------------------------------
+CHAR    FE81-FE82
+LABEL   FE81      PROMPT
+CHAR    FE83-FE89
+LABEL   FE83      WHAT
+DATA    FE8A-FFF7
+LABEL   FE8A      SRTCH
+DATA    FE8A-FEA7
+LABEL   FEA7      SURE
+DATA    FEA7-FEB6
+LABEL   FEB7      TRK0
+DATA    FEB7-FECA
+LABEL   FECB      SRC
+DATA    FECB-FEDC
+LABEL   FEDD      DST
+DATA    FEDD-FEF3
+LABEL   FEF4      LDSRC
+DATA    FEF4-FF12
+LABEL   FF13      LDDST
+DATA    FF13-FF36
+LABEL   FF37      ANYKEY
+DATA    FF37-FF51
+LABEL   FF52      ERSEEK
+DATA    FF53-FF5D
+LABEL   FF5E      ERCRC
+DATA    FF5E-FF68
+LABEL   FF69      ERREC
+DATA    FF69-FF7A
+LABEL   FF7B      ERLOST
+DATA    FF7B-FF85
+LABEL   FF86      ERWRT
+DATA    FF86-FF94
+LABEL   FF95      FRMTN
+DATA    FF95-FFA0
+LABEL   FFA1      VRFYN
+DATA    FFA1-FFAB
+LABEL   FFAC      BCKUPD
+DATA    FFAC-FFBC
+LABEL   FFBD      FRMTD
+DATA    FFBD-FFCD
+LABEL   FFCE      VRFYD
+DATA    FFCE-FFDE
+LABEL   FFDF      ZERO
+DATA    FFDF-FFE1
+LABEL   FFE2      DSKNR
+DATA    FFE2-FFF1
+
+COMMENT FFF8 ------------------------------------------------------------------------------   
+
+#DATA FFF8-FFFF
+
+WORD  FFF8 IRQV
+WORD  FFFA SWIV
+WORD  FFFC NMIV
+WORD  FFFE RSTV
